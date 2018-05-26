@@ -34,7 +34,7 @@ eureka:
 #      enabled: true
     allow-redirects: false
     serviceUrl:
-      defaultZone: http://${security.user.name}:${security.user.password}@eureka-primary:9000/eureka/
+      defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
 endpoints:
   restart:
     enabled: true

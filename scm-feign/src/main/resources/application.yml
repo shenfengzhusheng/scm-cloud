@@ -1,0 +1,31 @@
+info:
+  component: Spring Cloud Native Feign Server
+server:
+  port: 9100
+spring:
+    application:
+      name: service-feign
+security:
+    basic:
+      enabled: false
+    user:
+      name: xifengjun
+      password: 443596
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  instance:
+          leaseRenewalIntervalInSeconds: 10
+          leaseExpirationDurationInSeconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
+#日志配置
+logging:
+  pattern:
+      console: "[%thread] %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{90} - %msg%n"
+  level:
+      com.netflix.discovery: INFO
+      org.springframework.cloud: INFO
+      org.xfs.scm: INFO

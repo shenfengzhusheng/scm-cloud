@@ -46,7 +46,12 @@
 
     <modules>
         <module>eureka-master</module>
-        <module>scm-data</module>
         <module>scm-config</module>
+        <module>scm-ribbon</module>
+        <module>scm-feign</module>
+        <module>scm-data</module>
+        <module>scm-data-slave</module>
+        <module>scm-zuul</module>
+
     </modules>
 </project>

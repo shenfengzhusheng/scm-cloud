@@ -1,0 +1,22 @@
+info:
+  component: Cloud Native Ribbon Server
+server:
+  port: 9051
+spring:
+    application:
+      name: service-ribbon
+    zipkin:
+          base-url:  http://service-zipkin:9045
+security:
+    basic:
+      enabled: false
+    user:
+      name: xifengjun
+      password: 443596
+eureka:
+  instance:
+          leaseRenewalIntervalInSeconds: 10
+          leaseExpirationDurationInSeconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/

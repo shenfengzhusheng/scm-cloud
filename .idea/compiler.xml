@@ -9,6 +9,11 @@
         <module name="eureka-master" />
         <module name="scm-config" />
         <module name="scm-data" />
+        <module name="scm-data-slave" />
+        <module name="scm-feign" />
+        <module name="scm-ribbon" />
+        <module name="scm-zuul" />
+        <module name="service-ribbon" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -16,6 +21,11 @@
       <module name="scm-cloud" target="1.8" />
       <module name="scm-config" target="1.8" />
       <module name="scm-data" target="1.8" />
+      <module name="scm-data-slave" target="1.8" />
+      <module name="scm-feign" target="1.8" />
+      <module name="scm-ribbon" target="1.8" />
+      <module name="scm-zuul" target="1.8" />
+      <module name="service-ribbon" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

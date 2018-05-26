@@ -1,4 +1,4 @@
-package org.xfs.scm.data.service;
+package org.xfs.scm.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,10 +6,7 @@ import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Random;
@@ -19,6 +16,7 @@ public class HelloWeb {
 
     @Value("${server.port}")
     String port;
+
     @Value("${jdbc.validationQuery}")
     String validationQuery;
 
@@ -28,8 +26,8 @@ public class HelloWeb {
     @Autowired
     private CounterService counterService;
 
-    @RequestMapping(value = "/hi/{name}",method = RequestMethod.GET)
-    public String sayHi(@PathVariable String name){
+    @RequestMapping(value = "/hi",method = RequestMethod.GET)
+    public String sayHi(@RequestParam String name){
         counterService.increment(port+":begin services.sayHi.invoked");
         try {
             Thread.sleep(new Random().nextInt(2));
@@ -54,7 +52,7 @@ public class HelloWeb {
                         buf.append("["+si.getServiceId() +" host=" +si.getHost()+" port="+si.getPort()+" uri="+si.getUri()+"]");
                     }
                 }else{
-                    buf.append("no service.");
+                    buf.append("no web.");
                 }
             }
         }
