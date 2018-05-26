@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: service-config
+  profiles:
+    active: native
+  cloud:
+      config:
+        server:
+          native:
+            searchLocations: classpath:/config/pro/,classpath:/config/scm/,classpath:/config/common/
+security:
+    basic:
+      enabled: false
+    user:
+      name: xifengjun
+      password: 443596
+#cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: classpath:/config/scm/,classpath:/config/common/
+
+eureka:
+  instance:
+     # leaseRenewalIntervalInSeconds: 10
+      #nonSecurePort: ${server.port:8888}
+#      instanceId: configserver
+#      hostname: :configserver
+      appGroupName: scm
+
+  client:
+    #registerWithEureka: true
+    #fetchRegistry: true
+    serviceUrl:
+      defaultZone:  http://${security.user.name}:${security.user.password}@eureka-primary:9000/eureka/

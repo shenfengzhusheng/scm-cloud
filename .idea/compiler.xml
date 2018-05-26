@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka-master" />
+        <module name="scm-config" />
+        <module name="scm-data" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-master" target="1.8" />
+      <module name="scm-cloud" target="1.8" />
+      <module name="scm-config" target="1.8" />
+      <module name="scm-data" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

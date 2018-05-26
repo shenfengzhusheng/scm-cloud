@@ -1,0 +1,49 @@
+info:
+  component: SCM-CLOUD MASTER-EUREKA
+#应用配置信息
+server:
+  port: 9000
+spring:
+    application:
+      name: service-eureka
+#配置启动信息
+security:
+    basic:
+      enabled: true
+    user:
+      name: xifengjun
+      password: 443596
+eureka:
+  datacenter: xfs
+  environment: dev
+  instance:
+    hostname: eureka-master #暴露的hostname
+    appname:  eureka-master
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+   # data-center-info: xfs
+  client:
+      #是否将自身注册
+      registerWithEureka: false
+       #如果为true，启动时报警.
+      fetchRegistry: false
+      healthcheck:
+           enabled: true #默认是true，Eureka的监控检查，这个配置需要配置在application中，配置bootstrap中可能会导致一系列的问题
+      serviceUrl:
+       # defaultZone:  http://${security.user.name}:${security.user.password}@${spring.application.name}:${server.port}/eureka/
+        defaultZone:  http://${spring.application.name}:${server.port}/eureka/
+  server:
+    enable-replicated-request-compression: false
+    eviction-interval-timer-in-ms: 5000
+
+
+
+#日志配置
+logging:
+  pattern:
+      console: "[%thread] %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{90} - %msg%n"
+  level:
+      com.netflix.discovery: INFO
+      org.springframework.cloud: INFO
+      org.xfs.scm: INFO
+
+

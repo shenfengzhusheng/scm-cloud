@@ -1,0 +1,6 @@
+security:
+    basic:
+      enabled: false
+    user:
+      name: fengling89866
+      password: 11111

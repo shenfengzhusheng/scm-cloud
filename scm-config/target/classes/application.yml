@@ -1,0 +1,29 @@
+#配置工程监听端口
+server:
+  port: 9050
+info:
+  component: Cloud Native Config Server
+management:
+  context-path: /admin
+
+logging:
+  level:
+    com.netflix.discovery: INFO
+    org.springframework.cloud: INFO
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+eureka:
+  instance:
+    #register with IP addresses (required for deployment in Kubernetes?)
+    preferIpAddress: false
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+#

@@ -1,0 +1,41 @@
+info:
+  component: SCM CLOUD DATA SERVICE
+server:
+  port: 9101
+spring:
+    application:
+        name: service-data
+    cloud:
+      config:
+        profile: pro
+        enabled: true
+        failFast: true
+        retry:
+          initialInterval: 1500
+          maxInterval: 5000
+          maxAttempts: 5
+          multiplier: 1.5
+        discovery:
+          enabled: true
+          serviceId: service-config
+security:
+    basic:
+      enabled: false
+    user:
+      name: xifengjun
+      password: 443596
+eureka:
+  instance:
+      appGroupName: scm
+      leaseRenewalIntervalInSeconds: 10
+      leaseExpirationDurationInSeconds: 30
+  client:
+#    healthcheck:
+#      enabled: true
+    allow-redirects: false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@eureka-primary:9000/eureka/
+endpoints:
+  restart:
+    enabled: true
+
