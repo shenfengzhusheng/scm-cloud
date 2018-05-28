@@ -1,5 +1,5 @@
 info:
-  component: Cloud Native Ribbon Server
+  component: scm-cloud ribbon service
 server:
   port: 9051
 spring:

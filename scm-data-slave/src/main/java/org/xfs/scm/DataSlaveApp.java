@@ -7,11 +7,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
+@SpringBootApplication
 @EnableEurekaClient
 @EnableHystrix
-@EnableCircuitBreaker
-@SpringBootApplication
 @EnableHystrixDashboard
+@EnableCircuitBreaker
 public class DataSlaveApp {
     public static void main(String[]args){
         SpringApplication.run(DataSlaveApp.class,args);

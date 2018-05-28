@@ -7,7 +7,7 @@ spring:
         name: service-data
     cloud:
       config:
-        profile: pro
+        profile: dev
         enabled: true
         failFast: true
         retry:
@@ -31,6 +31,9 @@ eureka:
       appGroupName: scm
       leaseRenewalIntervalInSeconds: 10
       leaseExpirationDurationInSeconds: 30
+#      metadata-map:
+#        cluster : scm-data
+
   client:
 #    healthcheck:
 #      enabled: true

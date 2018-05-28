@@ -5,7 +5,7 @@ server:
   port: 9040
 spring:
   application:
-    name: service-zinkin
+    name: service-zipkin
   cloud:
       config:
         profile: dev

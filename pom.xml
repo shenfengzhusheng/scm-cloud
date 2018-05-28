@@ -53,6 +53,7 @@
         <module>scm-data-slave</module>
         <module>scm-zuul</module>
         <module>scm-zipkin</module>
+        <module>scm-turbine</module>
 
     </modules>
 </project>
