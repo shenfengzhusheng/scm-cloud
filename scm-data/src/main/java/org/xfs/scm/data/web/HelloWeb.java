@@ -1,5 +1,6 @@
 package org.xfs.scm.data.web;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.metrics.CounterService;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
+
 public class HelloWeb {
 
     @Value("${server.port}")
@@ -26,6 +28,7 @@ public class HelloWeb {
     private CounterService counterService;
 
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
+    @HystrixCommand(fallbackMethod = "hiError")
     public String sayHi(@RequestParam String name){
         counterService.increment(port+":begin services.sayHi.invoked");
         try {
@@ -59,7 +62,9 @@ public class HelloWeb {
 
         return buf.toString();
     }
-
+    public String hiError(String name) {
+        return "hi,"+name+",sorry,error!";
+    }
     @RequestMapping(value = "/admin/getConfig",method = RequestMethod.GET)
     public String get(){
         return "validationQuery:"+validationQuery;

@@ -1,23 +1,25 @@
 info:
   component: SCM CLOUD DATA SERVICE
 server:
-  port: 9101
+  port: 9108
 spring:
     application:
         name: service-data
-    cloud:
-      config:
-        profile: pro
-        enabled: true
-        failFast: true
-        retry:
-          initialInterval: 1500
-          maxInterval: 5000
-          maxAttempts: 5
-          multiplier: 1.5
-        discovery:
-          enabled: true
-          serviceId: service-config
+#    cloud:
+#        config:
+#            profile: pro
+#            enabled: true
+#            failFast: true
+#            retry:
+#                initialInterval: 1500
+#                maxInterval: 5000
+#                maxAttempts: 5
+#                multiplier: 1.5
+#            discovery:
+#                enabled: true
+#                serviceId: service-config
+#    zipkin:
+#       base-url:  http://service-zipkin:9040
 security:
     basic:
       enabled: false
@@ -32,10 +34,17 @@ eureka:
   client:
 #    healthcheck:
 #      enabled: true
-    allow-redirects: false
+  #  allow-redirects: false
     serviceUrl:
       defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
-endpoints:
-  restart:
-    enabled: true
+#endpoints:
+#  restart:
+#    enabled: true
 
+
+jdbc:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/pay?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    validationQuery: SELECT1 ----PRO
+    username: root
+    password: root

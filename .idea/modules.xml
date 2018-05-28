@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/scm-data-slave/scm-data-slave.iml" filepath="$PROJECT_DIR$/scm-data-slave/scm-data-slave.iml" />
       <module fileurl="file://$PROJECT_DIR$/scm-feign/scm-feign.iml" filepath="$PROJECT_DIR$/scm-feign/scm-feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/scm-ribbon/scm-ribbon.iml" filepath="$PROJECT_DIR$/scm-ribbon/scm-ribbon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scm-zipkin/scm-zipkin.iml" filepath="$PROJECT_DIR$/scm-zipkin/scm-zipkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/scm-zuul/scm-zuul.iml" filepath="$PROJECT_DIR$/scm-zuul/scm-zuul.iml" />
     </modules>
   </component>

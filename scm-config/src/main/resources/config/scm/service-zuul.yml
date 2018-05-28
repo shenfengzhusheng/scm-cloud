@@ -1,0 +1,38 @@
+zuul:
+  ignoredPatterns: /**/admin/**
+  routes:
+    api-a:
+          path: /api-a/**
+          serviceId: service-ribbon
+    api-b:
+          path: /api-b/**
+          serviceId: service-feign
+    web:
+      path: /**
+      serviceId: zwitscher-board
+  endpoints:
+    info:
+      enabled: true
+    shutdown:
+      enabled: true
+    health:
+      enabled: true
+      sensitive: false
+
+  logging:
+    level:
+      com.netflix.discovery: INFO
+      org.springframework.cloud: INFO
+      org.springframework.web: DEBUG
+      de.qaware.cloud.nativ.zwitscher: DEBUG
+
+  management:
+    context-path: /admin
+
+  eureka:
+    instance:
+      # register with IP addresses (required for deployment in Kubernetes?)
+      preferIpAddress: true
+      leaseRenewalIntervalInSeconds: 10
+      statusPageUrlPath: ${management.context-path}/info
+      healthCheckUrlPath: ${management.context-path}/health

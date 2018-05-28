@@ -1,27 +1,13 @@
 info:
-  component: Cloud Native This is Zuul Server
+  component: Zwitscher Zuul Edge Server
+
 server:
-  port: 9020
+  port: 9012
 
-spring:
-  application:
-    name: service-zuul
-security:
-    basic:
-      enabled: false
-    user:
-      name: xifengjun
-      password: 443596
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
-
-zuul:
-  routes:
-    api-a:
-        path: /api-a/**
-        serviceId: service-ribbon
-    api-b:
-        path: /api-b/**
-        serviceId: service-feign
+hystrix:
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 30000

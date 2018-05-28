@@ -12,6 +12,7 @@
         <module name="scm-data-slave" />
         <module name="scm-feign" />
         <module name="scm-ribbon" />
+        <module name="scm-zipkin" />
         <module name="scm-zuul" />
         <module name="service-ribbon" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="scm-data-slave" target="1.8" />
       <module name="scm-feign" target="1.8" />
       <module name="scm-ribbon" target="1.8" />
+      <module name="scm-zipkin" target="1.8" />
       <module name="scm-zuul" target="1.8" />
       <module name="service-ribbon" target="1.8" />
     </bytecodeTargetLevel>

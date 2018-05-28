@@ -1,0 +1,43 @@
+info:
+  component: scm-cloud zinkin Server
+
+server:
+  port: 9040
+spring:
+  application:
+    name: service-zinkin
+  cloud:
+      config:
+        profile: dev
+        enabled: true
+        failFast: true
+        retry:
+          initialInterval: 1500
+          maxInterval: 5000
+          maxAttempts: 5
+          multiplier: 1.5
+        discovery:
+          enabled: true
+          serviceId: service-config
+
+security:
+    basic:
+      enabled: false
+    user:
+      name: xifengjun
+      password: 443596
+eureka:
+  instance:
+ #     nonSecurePort: ${server.port:9012}
+    #  appGroupName: service-zuul
+      leaseRenewalIntervalInSeconds: 10
+      leaseExpirationDurationInSeconds: 30
+  client:
+#    healthcheck:
+#      enabled: true
+    allow-redirects: false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
+endpoints:
+  restart:
+    enabled: true

@@ -1,5 +1,5 @@
 info:
-  component: SCM CLOUD DATA SERVICE
+  component: ddd
 server:
   port: 9102
 spring:
@@ -18,6 +18,8 @@ spring:
         discovery:
           enabled: true
           serviceId: service-config
+    zipkin:
+        base-url:  http://service-zipkin:9040
 security:
     basic:
       enabled: false

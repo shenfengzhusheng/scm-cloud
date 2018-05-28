@@ -5,6 +5,8 @@ server:
 spring:
     application:
       name: service-feign
+    zipkin:
+      base-url:  http://service-zipkin:9040
 security:
     basic:
       enabled: false

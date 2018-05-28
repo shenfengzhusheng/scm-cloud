@@ -1,11 +1,11 @@
-endpoints:
-  info:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    enabled: true
-    sensitive: false
+#endpoints:
+#  info:
+#    enabled: true
+#  shutdown:
+#    enabled: true
+#  health:
+#    enabled: true
+#    sensitive: false
 
 logging:
   level:
@@ -13,14 +13,14 @@ logging:
     org.springframework.cloud: INFO
     org.springframework.web: DEBUG
 #    de.qaware.cloud.nativ.zwitscher: DEBUG
-
-management:
-  context-path: /admin
+#
+#management:
+#  context-path: /admin
 
 eureka:
   instance:
     # register with IP addresses (required for deployment in Kubernetes?)
-    preferIpAddress: true
+  #  preferIpAddress: true
     leaseRenewalIntervalInSeconds: 10
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
