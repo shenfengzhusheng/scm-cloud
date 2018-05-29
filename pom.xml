@@ -46,6 +46,7 @@
         <module>scm-zuul</module>
         <module>scm-zipkin</module>
         <module>scm-turbine</module>
+        <module>scm-manager</module>
 
     </modules>
 </project>

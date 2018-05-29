@@ -1,0 +1,40 @@
+spring:
+  redis:
+         host: 127.0.0.1
+         port: 6379
+         password: qht_bj
+         timeout: 20000
+         pool:
+             max-active: 8
+             min-idle: 0
+             max-idle: 8
+             max-wait: -1
+
+logging:
+  level:
+    com.netflix.discovery: INFO
+    org.springframework.cloud: INFO
+    org.springframework.web: INFO
+    org.xfs.scm.manager: DEBUG
+#    de.qaware.cloud.nativ.zwitscher: DEBUG
+#
+#management:
+#  context-path: /admin
+#
+#eureka:
+#  instance:
+#    # register with IP addresses (required for deployment in Kubernetes?)
+#    preferIpAddress: true
+#    leaseRenewalIntervalInSeconds: 10
+#    statusPageUrlPath: ${management.context-path}/info
+#    healthCheckUrlPath: ${management.context-path}/health
+#
+#
+#endpoints:
+#  info:
+#    enabled: true
+#  shutdown:
+#    enabled: true
+#  health:
+#    enabled: true
+#    sensitive: false
