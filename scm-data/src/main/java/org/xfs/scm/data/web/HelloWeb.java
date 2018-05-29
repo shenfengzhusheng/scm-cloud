@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 
@@ -21,6 +24,8 @@ public class HelloWeb {
     @Value("${jdbc.validationQuery}")
     String validationQuery;
 
+    @Resource
+    private RedisTemplate<String,String>redisTemplate;
     @Autowired
     private DiscoveryClient discoveryClient;
 
@@ -30,6 +35,13 @@ public class HelloWeb {
     @RequestMapping(value = "/hi",method = RequestMethod.GET)
     @HystrixCommand(fallbackMethod = "hiError")
     public String sayHi(@RequestParam String name){
+        String cacheValue=this.redisTemplate.opsForValue().get("test");
+        if(cacheValue!=null && "88 gun".equals(cacheValue) ){
+            System.out.println("had cache 88gun!");
+        }else{
+            System.out.println("not cache 88gun!");
+            this.redisTemplate.opsForValue().set("test","88 gun",7200, TimeUnit.SECONDS);
+        }
         counterService.increment(port+":begin services.sayHi.invoked");
         try {
             Thread.sleep(new Random().nextInt(2));

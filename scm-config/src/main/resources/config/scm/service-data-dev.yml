@@ -1,17 +1,20 @@
-endpoints:
-  info:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    enabled: true
-    sensitive: false
+spring:
+  redis:
+         host: 127.0.0.1
+         port: 6379
+         password: qht_bj
+         timeout: 20000
+         pool:
+             max-active: 8
+             min-idle: 0
+             max-idle: 8
+             max-wait: -1
 
 logging:
   level:
     com.netflix.discovery: INFO
     org.springframework.cloud: INFO
-    org.springframework.web: DEBUG
+    org.springframework.web: INFO
 #    de.qaware.cloud.nativ.zwitscher: DEBUG
 
 management:
@@ -28,6 +31,14 @@ eureka:
 jdbc:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/pay?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
-    validationQuery: SELECT1 ----DEV
+    validationQuery: SELECT1 ----PRO
     username: root
     password: root
+endpoints:
+  info:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false

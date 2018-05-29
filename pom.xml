@@ -23,15 +23,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <dependencies>
 
-        <!-- junit支持-->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-    </dependencies>
     <dependencyManagement>
         <dependencies>
             <dependency>
