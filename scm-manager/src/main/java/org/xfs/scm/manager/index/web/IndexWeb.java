@@ -14,16 +14,29 @@ public class IndexWeb {
 
     // inject via application.properties
     @Value("${welcome.message:test}")
-    private String message = "Hello World";
+    private String message ;
 
     @RequestMapping("/")
     public String welcome(Map<String, Object> model) {
         model.put("message", this.message);
         return "welcome";
     }
+
+
+    @RequestMapping("idnex")
+    public String idnex(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "welcome";
+    }
     @ResponseBody
     @RequestMapping("/weclome")
-    public Object index(){
-        return "hello world!";
+    public Object weclome(){
+        return this.message;
+    }
+
+    @RequestMapping("/test.do")
+    public String test(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "welcome";
     }
 }

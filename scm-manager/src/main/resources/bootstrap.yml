@@ -1,13 +1,13 @@
 info:
   component: SCM CLOUD MANAGER SITE SERVICE
 server:
-  port: 9201
+  port: 9222
 spring:
     application:
         name: service-manager
     cloud:
       config:
-        profile: dev
+        profile: pro
         enabled: true
         failFast: true
         retry:
@@ -24,6 +24,8 @@ spring:
           prefix: /WEB-INF/views/jsp/
           # 响应页面默认后缀
           suffix: .jsp
+    zipkin:
+        base-url:  http://service-zipkin:9040
 security:
     basic:
       enabled: false
@@ -40,10 +42,12 @@ eureka:
   client:
 #    healthcheck:
 #      enabled: true
-    allow-redirects: false
+    #allow-redirects: false
     serviceUrl:
       defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
-endpoints:
-  restart:
-    enabled: true
+#endpoints:
+#  restart:
+#    enabled: true
+welcome:
+  message: HELLO JEKEN!!!!!
 
