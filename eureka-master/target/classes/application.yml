@@ -39,8 +39,6 @@ eureka:
 
 #日志配置
 logging:
-  pattern:
-      console: "[%thread] %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{90} - %msg%n"
   level:
       com.netflix.discovery: INFO
       org.springframework.cloud: INFO

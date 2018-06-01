@@ -12,9 +12,9 @@ spring:
 
 logging:
   level:
-    com.netflix.discovery: INFO
-    org.springframework.cloud: INFO
-    org.springframework.web: INFO
+    com.netflix.discovery: ERROR
+    org.springframework.cloud: ERROR
+    org.springframework.web: DEBUG
     org.xfs.scm.manager: DEBUG
 #    de.qaware.cloud.nativ.zwitscher: DEBUG
 #

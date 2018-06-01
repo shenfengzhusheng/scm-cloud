@@ -8,7 +8,7 @@ spring:
     name: service-zipkin
   cloud:
       config:
-        profile: dev
+        profile: pro
         enabled: true
         failFast: true
         retry:

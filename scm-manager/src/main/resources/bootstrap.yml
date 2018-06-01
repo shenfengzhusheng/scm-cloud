@@ -18,12 +18,12 @@ spring:
         discovery:
           enabled: true
           serviceId: service-config
-    mvc:
-        view:
-          # 页面默认前缀目录
-          prefix: /WEB-INF/views/jsp/
-          # 响应页面默认后缀
-          suffix: .jsp
+#    mvc:
+#        view:
+#          # 页面默认前缀目录
+#          prefix: /WEB-INF/views/jsp/
+#          # 响应页面默认后缀
+#          suffix: .jsp
     zipkin:
         base-url:  http://service-zipkin:9040
 security:
