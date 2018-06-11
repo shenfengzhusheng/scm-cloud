@@ -16,8 +16,8 @@ import java.util.Map;
 
 public class QrCodeUtil {
     public static final String QRCODE_DEFAULT_CHARSET="UTF-8";
-    public static final int QRCODE_DEFAULT_HEIGHT = 250;
-    public static final int QRCODE_DEFAULT_WIDTH = 250;
+    public static final int QRCODE_DEFAULT_HEIGHT = 177;
+    public static final int QRCODE_DEFAULT_WIDTH = 177;
 
      private static final int IMAGE_WIDTH = 68;
     private static final int IMAGE_HEIGHT = 68;
@@ -25,7 +25,7 @@ public class QrCodeUtil {
     private static final int WHITE = 0xFFFFFFFF;
     public static void main(String[] args) throws IOException, NotFoundException {
         String data = "http://www.baidu.com";
-        File logoFile = new File("d://logo//logo.png");
+        File logoFile = new File("d://logo//wx.jpg");
         BufferedImage image = QrCodeUtil.createQRCodeWithLogo(data, logoFile);
         ImageIO.write(image, "png", new File("d://result10.png"));
         System.out.println("done");

@@ -1,4 +1,4 @@
-package org.xfs.scm.manager;
+package org.xfs.scm.manager.config;
 
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -29,9 +29,9 @@ import java.util.Optional;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"org.xfs.scm.**.web"})
-public class MvcConfiguration extends WebMvcConfigurerAdapter {
+public class MvcConfig extends WebMvcConfigurerAdapter {
 
-	private final static Logger logger= LoggerFactory.getLogger(MvcConfiguration.class);
+	private final static Logger logger= LoggerFactory.getLogger(MvcConfig.class);
 
 	/**
 	 * {@inheritDoc}
@@ -50,8 +50,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	}
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+		registry.addResourceHandler("/static/**").addResourceLocations("/static/").setCachePeriod(60*60*24*30);
+
+		//registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 	}
 
 

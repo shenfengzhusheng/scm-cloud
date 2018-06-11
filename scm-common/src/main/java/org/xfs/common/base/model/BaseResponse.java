@@ -19,11 +19,11 @@ public class BaseResponse<T> implements Serializable {
         this.data=data;
     }
 
-    public BaseResponse<String> success(String message){
+    public static BaseResponse<String> success(String message){
         return new BaseResponse<String>(ErrorCode.SUCCESS,message);
     }
 
-    public <T>  BaseResponse<T> success(String message,T data){
+    public static <T>  BaseResponse<T> success(String message,T data){
         return new BaseResponse<T>(ErrorCode.SUCCESS,message,data);
     }
 
@@ -31,4 +31,36 @@ public class BaseResponse<T> implements Serializable {
         return new BaseResponse<String>(ErrorCode.SYSTEM_ERROR_10001,msg);
     }
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMessageg() {
+        return messageg;
+    }
+
+    public void setMessageg(String messageg) {
+        this.messageg = messageg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseResponse{" +
+                "code=" + code +
+                ", messageg='" + messageg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }
