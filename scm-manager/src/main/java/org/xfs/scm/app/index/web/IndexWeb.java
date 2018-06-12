@@ -1,10 +1,9 @@
-package org.xfs.scm.manager.index.web;
+package org.xfs.scm.app.index.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
@@ -23,10 +22,15 @@ public class IndexWeb {
     }
 
 
-    @RequestMapping("idnex")
-    public String idnex(Map<String, Object> model) {
+    @RequestMapping("index")
+    public String index(Map<String, Object> model) {
         model.put("message", this.message);
         return "welcome";
+    }
+
+    @RequestMapping("job")
+    public String job(Map<String, Object> model) {
+        return "JobManager";
     }
     @ResponseBody
     @RequestMapping("/weclome")

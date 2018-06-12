@@ -12,25 +12,25 @@
 			<property name="suppressAllComments" value="true"/>
 		</commentGenerator>
 		<!--数据库链接URL，用户名、密码 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.0.2/pay" userId="jeken" password="pay">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.0.2/task" userId="task" password="task">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false"/>
 		</javaTypeResolver>
 		<!-- 生成模型的包名和位置-->
-		<javaModelGenerator targetPackage="org.xfs.scm.app.goods.item.entity" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="org.xfs.scm.app.task.detail.entity" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 		<!-- 生成映射文件的包名和位置-->
-		<sqlMapGenerator targetPackage="org.xfs.scm.app.goods.item.mapper" targetProject="src/main/java">
+		<sqlMapGenerator targetPackage="org.xfs.scm.platform.config.quartz.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置-->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="org.xfs.scm.app.goods.item.mapper" targetProject="src/main/java">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="org.xfs.scm.platform.config.quartz.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 		<!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-		<table tableName="tb_item" domainObjectName="ItemEntity" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="qrtz_job_details" domainObjectName="JobDetails" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 	</context>
 </generatorConfiguration>

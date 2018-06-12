@@ -20,6 +20,17 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
+scm:
+  redis:
+     host: 127.0.0.1
+     port: 6379
+     password: qht_bj
+     timeout: 20000
+     pool:
+         max-active: 8
+         min-idle: 0
+         max-idle: 8
+         max-wait: -1
 mybatis:
   #mapper-locations: classpath:mapping/*.xml
   type-aliases-package: org.xfs.scm.**.mapper

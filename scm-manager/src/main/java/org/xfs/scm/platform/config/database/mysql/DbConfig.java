@@ -1,4 +1,4 @@
-package org.xfs.scm.manager.config;
+package org.xfs.scm.platform.config.database.mysql;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

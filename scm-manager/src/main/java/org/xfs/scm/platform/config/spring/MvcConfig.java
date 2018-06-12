@@ -1,4 +1,4 @@
-package org.xfs.scm.manager.config;
+package org.xfs.scm.platform.config.spring;
 
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -28,7 +28,7 @@ import java.util.Optional;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.xfs.scm.**.web"})
+@ComponentScan(basePackages = {"org.xfs.scm.app.index.web"})
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	private final static Logger logger= LoggerFactory.getLogger(MvcConfig.class);
