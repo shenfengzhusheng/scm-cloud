@@ -48,6 +48,7 @@
         <module>scm-turbine</module>
         <module>scm-manager</module>
         <module>scm-cloud-common</module>
+        <module>scm-quartz</module>
 
     </modules>
 </project>

@@ -1,0 +1,53 @@
+info:
+  component: SCM CLOUD MANAGER SITE SERVICE
+server:
+  port: 9060
+spring:
+    application:
+        name: service-quartz
+    cloud:
+      config:
+        profile: pro
+        enabled: true
+        failFast: true
+        retry:
+          initialInterval: 1500
+          maxInterval: 5000
+          maxAttempts: 5
+          multiplier: 1.5
+        discovery:
+          enabled: true
+          serviceId: service-config
+#    mvc:
+#        view:
+#          # 页面默认前缀目录
+#          prefix: /WEB-INF/views/jsp/
+#          # 响应页面默认后缀
+#          suffix: .jsp
+    zipkin:
+        base-url:  http://service-zipkin:9040
+security:
+    basic:
+      enabled: false
+    user:
+      name: xifengjun
+      password: 443596
+eureka:
+  instance:
+      appGroupName: scm
+      leaseRenewalIntervalInSeconds: 10
+      leaseExpirationDurationInSeconds: 30
+#      metadata-map:
+#        cluster : scm-data
+  client:
+#    healthcheck:
+#      enabled: true
+    #allow-redirects: false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@service-eureka:9000/eureka/
+#endpoints:
+#  restart:
+#    enabled: true
+welcome:
+  message: HELLO JEKEN!!!!!
+
