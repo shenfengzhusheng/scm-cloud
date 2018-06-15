@@ -28,11 +28,14 @@ import java.util.Optional;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"org.xfs.scm.app.index.web"})
+@ComponentScan(basePackages = {"org.xfs.scm.**.web"})
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	private final static Logger logger= LoggerFactory.getLogger(MvcConfig.class);
-
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 	/**
 	 * {@inheritDoc}
 	 * <p>This implementation is empty.

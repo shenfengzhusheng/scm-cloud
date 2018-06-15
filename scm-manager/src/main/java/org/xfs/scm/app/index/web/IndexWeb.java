@@ -1,5 +1,6 @@
 package org.xfs.scm.app.index.web;
 
+import com.google.common.util.concurrent.RateLimiter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +11,7 @@ import java.util.Map;
 @Controller
 public class IndexWeb {
 
-
+    private int count=0;
     // inject via application.properties
     @Value("${welcome.message:test}")
     private String message ;
@@ -40,7 +41,19 @@ public class IndexWeb {
 
     @RequestMapping("/test.do")
     public String test(Map<String, Object> model) {
-        model.put("message", this.message);
+        Long start = System.currentTimeMillis();
+
+        RateLimiter limiter = RateLimiter.create(10000) ;
+        //批量调用
+        for (int i = 0 ;i< 10 ; i++){
+            double acquire = limiter.acquire();
+            System.out.println(Thread.currentThread().getName()+"call execute.." +acquire);
+
+        }
+        model.put("message", "天王盖地虎！");
+        Long end = System.currentTimeMillis();
+
+        System.out.println(end - start);
         return "welcome";
     }
 }

@@ -1,5 +1,6 @@
 package org.xfs.scm.app.goods.item.web;
 
+import com.google.common.util.concurrent.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,8 @@ public class ItemWeb {
     @ResponseBody
     @RequestMapping(value = "info.do/{itemId}",method = RequestMethod.GET)
     public Object info(@PathVariable Long itemId){
+        RateLimiter limiter = RateLimiter.create(300) ;
+
         ItemVo data=this.itemService.get(new ItemVo(itemId));
         if(data!=null){
             return BaseResponse.success("查询成功!",data);

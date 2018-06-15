@@ -18,15 +18,20 @@ spring:
         discovery:
           enabled: true
           serviceId: service-config
+    http:
+      encoding:
+        charset: utf-8
+        enabled: true
+        force: true
 #    thymeleaf:
 #      cache: false
 #      enabled: false
-    mvc:
-        view:
-          # 页面默认前缀目录
-          prefix: /WEB-INF/views/jsp/
-          # 响应页面默认后缀
-          suffix: .jsp
+#    mvc:
+#        view:
+#          # 页面默认前缀目录
+#          prefix: /WEB-INF/views/jsp/
+#          # 响应页面默认后缀
+#          suffix: .jsp
     zipkin:
         base-url:  http://service-zipkin:9040
 security:
