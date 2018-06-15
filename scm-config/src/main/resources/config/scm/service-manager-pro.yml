@@ -20,11 +20,22 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-scm:
-  redis:
-         host: 127.0.0.1
+    redis:
+         host: 121.42.205.204
          port: 6379
          database: 3
+         password: qht_bj
+         timeout: 20000
+         pool:
+             max-active: 8
+             min-idle: 0
+             max-idle: 8
+             max-wait: -1
+scm:
+    redis:
+         host: 121.42.205.204
+         port: 6379
+         database: 8
          password: qht_bj
          timeout: 20000
          pool:
@@ -47,7 +58,7 @@ logging:
   level:
     com.netflix.discovery: ERROR
     org.springframework.cloud: ERROR
-    org.springframework.web: ERROR
+    org.springframework.web: DEBUG
     org.xfs.scm.manager: DEBUG
 #    de.qaware.cloud.nativ.zwitscher: DEBUG
 #
