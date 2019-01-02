@@ -37,4 +37,6 @@
 		<table tableName="tb_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 	</context>
 </generatorConfiguration>
-<!-- idea 运行命令：mvn mybatis-generator:generate-->
+<!-- idea 运行命令：mvn mybatis-generator:generate
+	eclipse 运行命令：mybatis-generator:generate
+-->
